@@ -39,11 +39,37 @@ public class Main {
             produtos.add(new Produto(codigo, nome, preco));//adiciona os cadastros no ArrayList
         }
 
-        /*Resta apenas chamar a função aumentoPercentual,
-          Isso será feito com entradas do usuário, então o usuário que define:
-          qual o produto ele quer e quanto de Percentual de aumento ele quer no Produto
-        * */
+        //pedindo ao usuário o código do produto que ele deseja alterar
+        System.out.println("Informe o código do produto que deseja alterar o preço: ");
+        int codigoBusca = sc.nextInt();
 
+        //Laço de repetição para procurar o codigo do produto informado pelo meu usuário
+        Produto produtoSelecionado = null;
+        for(Produto p : produtos){
+            if(p.getCodProduto() == codigoBusca){
+                produtoSelecionado = p;
+                break;
+            }
+        }
+        //if caso o produto selecionado não exisitir
+        if(produtoSelecionado == null) throw new IllegalArgumentException("Código do produto não encontrado! Informe um código válido");
+
+        //Pedindo o percentual de aumento ao usuário
+        System.out.println("Informe o percentual de aumento que você deseja aplicar: ");
+        double percentual = sc.nextDouble();
+
+        if(percentual <= 0) throw new IllegalArgumentException("Percentual deve ser maior que zero!");
+
+        produtoSelecionado.aumentoPercentual(percentual);
+
+        //exibindo lista atualizada para o usuário na tela
+        System.out.println("\nLista de Produtos Atualizada: ");
+        for(Produto p : produtos){
+            System.out.printf("Código: %d  | Nome: %s  | Preço: R$%.2f%n ",
+                    p.getCodProduto(), p.getNome(), p.getPreco());
+
+        }
+        sc.close();
 
     }
 }
