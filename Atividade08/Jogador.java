@@ -36,4 +36,11 @@ public class Jogador {
         return this;
     }
 
+    //Metodo para aumentar salário do jogar com input do usuário
+    public double aumentarSalario(double percentual){
+        salario = salario + salario * percentual/100;
+        return salario;
+    }
+
+
 }
