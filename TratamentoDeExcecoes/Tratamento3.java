@@ -2,7 +2,7 @@ package TratamentoDeExcecoes;
 
 public class Tratamento3 {
     public static void main(String[] args) {
-        double preco = 0;
+        double preco = -1;
 
         try{
             if(preco < 0){
