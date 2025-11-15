@@ -1,7 +1,5 @@
 package Atividade11_SistemaLojaDeLivros;
 
-
-
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -16,17 +14,6 @@ public class Main {
         livros.add(new Livro("Banco de dados","Silberschatz", 80.00));
         livros.add(new Livro("Lógica de Programação" , "Forbellone", 55.00));
 
-        //falta apenas utilizar as Lambdas para os fitros e etc:
-        /*
-            3)_Utilizando Lambdas e Streams, o programa deve:
-
-            Mostrar apenas os livros com preço acima de R$ 50,00 (filter);
-            Exibir apenas os títulos em maiúsculo (map);
-            Calcular e mostrar o preço médio dos livros (mapToDouble().average()).
-            4)_Ordenar a lista de livros pelo preço (do menor para o maior) usando Comparator e Lambda.
-            5)_Exibir o livro mais caro e o mais barato utilizando max() e min() com expressões lambda.
-
-        * */
         //exibindo Lista de livros cadastrados com Lambda:
         System.out.println("Lista de Livros: ");
         livros.forEach(l ->
@@ -58,6 +45,8 @@ public class Main {
                 .average() //faz a media deles average em Portugues = média
                 .orElse(0.0); //caso os preços não existirem no array ele pega 0.0
         System.out.printf("A média dos preços dos livros é: R$%.2f%n", media); //imprimindo a média para meu usuário na tela
+        System.out.println("------------------------------------------------------------------------");
+
         //Ordenando os Livros em ordem Crescente:
         System.out.println("Ordenando Livros pelos preços em ordem crescente: ");
         livros.stream()
@@ -66,6 +55,22 @@ public class Main {
                         System.out.printf("Nome do Livro: %s  | Autor: %s  | Preço: R$%.2f%n",
                                 livro.getTitulo(), livro.getAutor(), livro.getPreco())
                 );
+        System.out.println("------------------------------------------------------------------------");
+
+        //Exibindo Livro mais caro e o mais Barato
+        livros.stream()
+                .max(Comparator.comparing(Livro::getPreco))
+                .ifPresent(livro ->
+                                System.out.printf("Livro com maior Preço é: %s | Autor: %s  | Preço: R$%.2f%n",
+                                        livro.getTitulo(), livro.getAutor(), livro.getPreco())
+                        );
+
+        livros.stream()
+                .min(Comparator.comparing(Livro::getPreco))
+                .ifPresent(livro ->
+                                System.out.printf("Livro com menor Preço é: %s | Autor: %s  | Preço: R$%.2f%n",
+                                        livro.getTitulo(), livro.getAutor(), livro.getPreco())
+                        );
 
     }
 }
