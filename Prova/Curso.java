@@ -1,12 +1,12 @@
 package Prova;
 
 public abstract class Curso implements Inscrevivel {
-    protected int codigo;
+    protected String codigo;
     protected String titulo;
     protected double valorBase;
 
     //Constructor da classe:
-    public Curso(int codigo, String titulo, double valorBase){
+    public Curso(String codigo, String titulo, double valorBase){
         this.codigo = codigo;
         this.titulo = titulo;
         this.valorBase = valorBase;
@@ -14,11 +14,11 @@ public abstract class Curso implements Inscrevivel {
 
 
     //getters e setters:
-    public int getCodigo(){
+    public String getCodigo(){
         return codigo;
     }
 
-    public Curso setCodigo(int codigo){
+    public Curso setCodigo(String codigo){
         this.codigo = codigo;
         return this;
     }
@@ -42,7 +42,7 @@ public abstract class Curso implements Inscrevivel {
     }
 
     //Metodo abstrado para ser implementado de forma diferente em cada subclasse:
-    abstract void aplicarDisconto(double percentual);
+    abstract void aplicarDesconto(double percentual);
 
     @Override
     public double calcularValorTotal(int quantidade) {
@@ -54,8 +54,10 @@ public abstract class Curso implements Inscrevivel {
         System.out.println("A quantidade é: " + quantidade + "\nValor total: " + calcularValorTotal(quantidade));
     }
 
+    //To String para retornar informações do Objeto em formato de String
     @Override
     public String toString() {
-        return super.toString();
+        return String.format("Código: %s  | Titulo: %s  | Valor Base: R$%.2f%n",
+                codigo, titulo , valorBase);
     }
 }

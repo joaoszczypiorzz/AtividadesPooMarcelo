@@ -1,5 +1,6 @@
 package Prova;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,23 +22,22 @@ public class CatalogoCursos <T extends Curso>{
         lista.add(Curso);
     }
 
-    public T buscarPorCodigo(int codigo) {
+    //Buscar produto por código:
+    public T buscarPorCodigo(String codigo){
         return lista.stream()
-                .filter(p -> p.getCodigo() == codigo)
+                .filter(c -> c.getCodigo().equalsIgnoreCase(codigo))
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(() -> new IllegalArgumentException("Curso não encontrada " + codigo)); //mandando exceção de erro para curso não encontrado
     }
 
-    // Listar todos os produtos
+    //Listar todos os produtos
     public void listarCursos() {
         if (lista.isEmpty()) {
             System.out.println("Nenhum Curso cadastrado!");
         } else {
-            for (T produto : lista) {
-                System.out.println(produto);
+            for(T cursos : lista){
+                System.out.println(cursos);
             }
-
-
         }
     }
 
