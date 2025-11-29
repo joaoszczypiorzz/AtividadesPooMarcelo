@@ -51,7 +51,9 @@ public abstract class Curso implements Inscrevivel {
 
     @Override
     public void inscrever(int quantidade) {
-        System.out.println("A quantidade é: " + quantidade + "\nValor total: " + calcularValorTotal(quantidade));
+        System.out.printf("Quantidade de Alunos Inscritos no curso: %d%nValor total: R$%.2f%n",
+                quantidade, calcularValorTotal(quantidade)
+        );
     }
 
     //To String para retornar informações do Objeto em formato de String
