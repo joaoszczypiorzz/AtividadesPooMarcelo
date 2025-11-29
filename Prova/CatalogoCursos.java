@@ -27,7 +27,7 @@ public class CatalogoCursos <T extends Curso>{
         return lista.stream()
                 .filter(c -> c.getCodigo().equalsIgnoreCase(codigo))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Curso não encontrada " + codigo)); //mandando exceção de erro para curso não encontrado
+                .orElseThrow(() -> new IllegalArgumentException("Curso " + codigo + " não encontrado!")); //mandando exceção de erro para curso não encontrado
     }
 
     //Listar todos os produtos
@@ -39,6 +39,13 @@ public class CatalogoCursos <T extends Curso>{
                 System.out.println(cursos);
             }
         }
+    }
+
+    public T verifiarExiste(String codigoNovo){
+        return lista.stream()
+                .filter(c -> c.getCodigo().equalsIgnoreCase(codigoNovo))
+                .findFirst()
+                .orElse(null);
     }
 
 
