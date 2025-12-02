@@ -1,7 +1,7 @@
 package Prova;
 
 
-import java.sql.SQLOutput;
+
 import java.util.*;
 
 public class EscolaApp{
@@ -62,7 +62,7 @@ public class EscolaApp{
             }else{
                 System.out.println("Informe a plataforma do curso: ");
                 String plataforma = sc.nextLine();
-                System.out.println("Informe se já possui Material extra ou não (Digite true para sim | false para não");
+                System.out.println("Informe se já possui Material extra ou não (Digite true para sim | false para não)");
                 boolean materialExtra = sc.nextBoolean();
                 sc.nextLine(); //pulando Buffer
                 catalogo.adicionar(new CursoOnline(codigoNovo, titulo, valor, plataforma, materialExtra));
@@ -120,14 +120,19 @@ public class EscolaApp{
             int percentual = sc.nextInt();
             sc.nextLine(); //pulando buffer
             if(percentual < 0){
-                new IllegalArgumentException();
+                new InputMismatchException();
             }
             cursoEncontra.aplicarDesconto(percentual);
             System.out.println("Curso após DESCONTO: " + cursoEncontra);
 
 
-        }catch (IllegalArgumentException e){
+        }catch (InputMismatchException e){
             System.out.println("Erro: Percentual deve ser maior que zero!");
+        }catch (IllegalArgumentException e){
+            System.out.println("Erro: " + e.getMessage());
+        }finally {
+            System.out.println("Programa encerrando...");
+            sc.close(); //fechando Scanner
         }
 
 

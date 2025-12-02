@@ -1,0 +1,17 @@
+Descrição do que foi feito:
+Criar uma interface que define um contrato comum (Inscrevivel).
+Criar uma classe abstrata (Curso) que centraliza atributos e comportamentos comuns.
+Criar duas subclasses com comportamentos específicos (CursoPresencial e CursoOnline), demonstrando herança e polimorfismo.
+Usar Generics e List para criar um catálogo de cursos (CatalogoCursos<T extends Curso>).
+Usar expressões lambda para percorrer e listar os cursos com forEach.
+Implementar tratamento de exceções para garantir um funcionamento robusto ao ler dados do usuário.
+
+
+Classes:
+1)_CatalogoCursos
+2)_Curso
+3)_CursoOnline
+4)_CursoPresencial
+5)_EscolaApp
+6)_Inscrevivel
+
