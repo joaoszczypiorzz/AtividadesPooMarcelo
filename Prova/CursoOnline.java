@@ -1,5 +1,12 @@
 package Prova;
 
+/**
+ * Esta classe é a representação dos cursos Online, ela inclui suas informações especificas ( Plataforma e Material Extra )
+ * Ela é uma classe filha da Classe Curso, por isso sobreescreve seus métodos e possui acesso ao super
+ * Com essa classe pude implementar de forma prática meus estudos acerca dos conceitos de Herança multipla e polimorfismo em Java
+ * @author João Szczypior
+ * @version 1.0.0
+ */
 public class CursoOnline extends  Curso{
     private String plataforma;
     private boolean materialExtra;
@@ -27,6 +34,11 @@ public class CursoOnline extends  Curso{
         super(codigo, titulo, valorBase);
     }
 
+    /**
+     * Esta função tem como objetivo aplicar desconto a algum curso do catálogo,
+     * Ela sobreescreve o método de sua classe pai, de acordo com as regras de desconto para cursos Online
+     * @param percentual Representa o percentual de desconto a ser aplicado, informado por inputs do meu usuário
+     */
     @Override
     void aplicarDesconto(double percentual) {
         if(percentual > 50){
@@ -36,6 +48,10 @@ public class CursoOnline extends  Curso{
         valorBase = valorBase - (valorBase * percentual/100);
     }
 
+    /**
+     * toString padrão para facilitar a visualização dos dados da classe no debug e caso nescessário imprimir os dados ao usuário na tela
+     * @return retornar o estado atual dos Objetos
+     */
     @Override
     public String toString() {
         return "[ONLINE] " +

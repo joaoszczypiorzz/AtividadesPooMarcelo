@@ -1,5 +1,12 @@
 package Prova;
 
+/**
+ * Classe abstrata Pai, que tem como função ser a base para todo e qualquer Curso, sendo ele presencial ou Online
+ * Esta classe por ser abstrata possui alguns métodos abstratos que devem ser implantados de acordo com as regras de negócios das classes filhas,
+ * Ela implementa a Interface Inscrevivel, logo é obrigada a implementar seus métodos
+ * @author João Szczypior
+ * @version 1.0.0
+ */
 public abstract class Curso implements Inscrevivel {
     protected String codigo;
     protected String titulo;
