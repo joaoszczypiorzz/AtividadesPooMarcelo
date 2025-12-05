@@ -1,6 +1,17 @@
 package Prova;
 
-
+/**
+ * Classe EscolaApp, onde basicamente o sistema de catálogo de Livros roda ( onde fica a main ),
+ * Essa classe implementa de fato todos os métodos desenvolvidos nas classes e interfaces deste projeto, Resumo do que ela faz abaixo:
+ * Criar um catálogo com cursos pré-cadastrados.
+ * Permitir o cadastro de um novo curso, sem repetir código.
+ * Realizar inscrição em um curso, calculando o valor total.
+ * Aplicar desconto em um curso após a inscrição, respeitando regras internas das subclasses.
+ * Exibir listas de cursos em diferentes momentos para acompanhamento.
+ * Utilizar listas, generics, lambdas e tratamento de exceções de forma integrada.
+ * @author João Szczypior
+ * @version 3.0.5
+ */
 
 import java.util.*;
 
